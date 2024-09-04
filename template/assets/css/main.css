@@ -1,4 +1,3 @@
-/* other CSS not covered by tailwindCSS */
 a {
   transition: all 0.15s ease;
 }
@@ -37,7 +36,7 @@ a:hover {
   border-style: solid;
 }
 
-input[type='file'] {
+input[type="file"] {
   margin-top: 20px;
 }
 
