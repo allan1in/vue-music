@@ -1,7 +1,7 @@
 <template>
   <!-- Registration Form -->
-  <!-- use vee-validate plugin, learn more from https://vee-validate.logaretm.com/v4/api/form/ -->
-  <!-- learn more about validation-schema from https://vee-validate.logaretm.com/v4/guide/components/validation/#form-level-validation -->
+  <!-- https://vee-validate.logaretm.com/v4/api/form/ -->
+  <!-- https://vee-validate.logaretm.com/v4/guide/components/validation/#form-level-validation -->
   <vee-form :validation-schema="registerSchema" @submit="register" :initial-values="userData">
     <!-- alert -->
     <div
@@ -151,7 +151,7 @@ export default {
         return
       }
 
-      // register and login succeess
+      // Register and login succeess
       this.reg_alert_variant = 'bg-green-500'
       this.reg_alert_msg = 'Success! Your account has been created.'
 

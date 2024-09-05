@@ -4,6 +4,8 @@ import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
 // https://firebase.google.com/docs/firestore/quickstart?hl=zh-cn#initialize
 import { getFirestore } from 'firebase/firestore'
+// https://firebase.google.com/docs/storage/web/start?authuser=0#web
+import { getStorage } from 'firebase/storage'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -15,6 +17,10 @@ const firebaseConfig = {
   appId: '1:530097646086:web:8c855b980e9ebacad1b187'
 }
 
+// Collection name
+const usersDocument = 'users'
+const songsDocument = 'songs'
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
 
@@ -24,4 +30,7 @@ const auth = getAuth(app)
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app)
 
-export { auth, db }
+// Initialize Cloud Storage and get a reference to the service
+const storage = getStorage(app)
+
+export { auth, db, usersDocument, storage, songsDocument }

@@ -63,10 +63,10 @@ input[type='file'] {
 
 @keyframes progress-bar-stripes {
   0% {
-    background-position: 1rem 0;
+    background-position: 0 0;
   }
   100% {
-    background-position: 0 0;
+    background-position: 1rem 0;
   }
 }
 

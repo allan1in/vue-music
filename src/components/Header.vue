@@ -3,7 +3,7 @@
   <header id="header" class="bg-gray-700">
     <nav class="container mx-auto flex justify-start items-center py-5 px-4">
       <!-- App Name -->
-      <!-- about exact-active-class: https://router.vuejs.org/zh/guide/essentials/active-links.html -->
+      <!-- https://router.vuejs.org/zh/guide/essentials/active-links.html -->
       <router-link
         class="text-white font-bold uppercase text-2xl mr-4"
         :to="{ name: 'home' }"

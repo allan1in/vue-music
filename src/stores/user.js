@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth'
-import { auth, db } from '@/includes/firebase'
+import { auth, db, usersDocument } from '@/includes/firebase'
 import { doc, setDoc } from 'firebase/firestore'
 
 export default defineStore('user', {
@@ -21,7 +21,7 @@ export default defineStore('user', {
       let userID = userCredential.user.uid
       // specify an ID for the firestore document
       // https://firebase.google.com/docs/firestore/manage-data/add-data#add_a_document
-      await setDoc(doc(db, 'users', userID), {
+      await setDoc(doc(db, usersDocument, userID), {
         name: values.name,
         email: values.email,
         age: values.age,
@@ -36,6 +36,7 @@ export default defineStore('user', {
       await signInWithEmailAndPassword(auth, values.email, values.password)
       // update state
       this.userLoggedIn = true
+      console.log(auth.currentUser)
     },
 
     async signOut() {
