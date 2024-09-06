@@ -3,6 +3,7 @@ import Home from '@/views/Home.vue'
 import About from '@/views/About.vue'
 import Manage from '@/views/Manage.vue'
 import useUserStore from '@/stores/user'
+import Song from '@/components/Song.vue'
 
 const routes = [
   // name property allows you to change the path easily
@@ -28,6 +29,11 @@ const routes = [
     // if user visit old path, redirect to new path
     path: '/manage-music',
     redirect: { name: 'manage' }
+  },
+  {
+    name: 'song',
+    path: '/song/:id',
+    component: Song
   },
   {
     // https://router.vuejs.org/zh/guide/essentials/dynamic-matching.html#%E6%8D%95%E8%8E%B7%E6%89%80%E6%9C%89%E8%B7%AF%E7%94%B1%E6%88%96-404-Not-found-%E8%B7%AF%E7%94%B1

@@ -42,8 +42,8 @@
   </div>
 </template>
 <script>
-import { storage, auth, songsDocument, db } from '@/includes/firebase'
-import { addDoc, collection, getDoc } from 'firebase/firestore'
+import { storage, auth, songsCollection } from '@/includes/firebase'
+import { addDoc, getDoc } from 'firebase/firestore'
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage'
 
 export default {
@@ -122,7 +122,7 @@ export default {
             }
             song.url = await getDownloadURL(uploadTask.snapshot.ref)
             // https://firebase.google.com/docs/firestore/manage-data/add-data#add_a_document
-            const songRef = await addDoc(collection(db, songsDocument), song)
+            const songRef = await addDoc(songsCollection, song)
             // The function addSong needs a snapshot
             // https://firebase.google.com/docs/reference/js/firestore_.md#getdoc_4569087
             const songSnapshot = await getDoc(songRef)

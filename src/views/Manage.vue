@@ -30,8 +30,8 @@
 <script>
 import CompositionItem from '@/components/CompositionItem.vue'
 import AppUpload from '@/components/Upload.vue'
-import { auth, db } from '@/includes/firebase'
-import { collection, query, where, getDocs } from 'firebase/firestore'
+import { auth, songsCollection } from '@/includes/firebase'
+import {  query, where, getDocs } from 'firebase/firestore'
 
 export default {
   name: 'Manage',
@@ -47,7 +47,7 @@ export default {
   },
   async created() {
     // https://firebase.google.com/docs/firestore/query-data/queries?authuser=0#execute_a_query
-    const q = query(collection(db, 'songs'), where('uid', '==', auth.currentUser.uid))
+    const q = query(songsCollection, where('uid', '==', auth.currentUser.uid))
     const querySnapshot = await getDocs(q)
     querySnapshot.forEach(this.addSong)
   },
