@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
 import About from '@/views/About.vue'
-import Manage from '@/views/Manage.vue'
 import useUserStore from '@/stores/user'
 import Song from '@/components/Song.vue'
+import Manage from '@/views/Manage.vue'
 
 const routes = [
   // name property allows you to change the path easily
@@ -20,15 +20,7 @@ const routes = [
   {
     name: 'manage',
     path: '/manage',
-    component: Manage,
-    meta: {
-      requiresAuth: true
-    }
-  },
-  {
-    // if user visit old path, redirect to new path
-    path: '/manage-music',
-    redirect: { name: 'manage' }
+    component: Manage
   },
   {
     name: 'song',
