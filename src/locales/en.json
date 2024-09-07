@@ -1,0 +1,78 @@
+{
+  "home": {
+    "title": "Listen to Great Music!",
+    "desc": "Here, you can listen to your favorite music or upload music.",
+    "songs": "Songs"
+  },
+  "song": {
+    "comment_count": "No comments | 1 comment | {count} comments"
+  },
+  "header": {
+    "login_or_register": "Login / Register",
+    "manage": "Manage",
+    "logout": "Logout"
+  },
+  "player": {
+    "by": "by"
+  },
+  "manage": {
+    "upload": "Upload",
+    "my_songs": "My Songs",
+    "drop_msg": "Drop your files here",
+    "song_title": "Song Title",
+    "genre": "Genre",
+    "submit": "Submit",
+    "go_back": "Go Back",
+    "enter": {
+      "song_title": "Enter Song Title",
+      "genre": "Enter genre"
+    },
+    "alert": {
+      "update_wait": "Please wait! Updating song info.",
+      "update_error": "Something went wrong! Try again later",
+      "update_success": "Success!"
+    }
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Password",
+    "submit": "Submit",
+    "name": "Name",
+    "age": "Age",
+    "confirm_password": "Confirm Password",
+    "country": "Country",
+    "countries": {
+      "america": "Ameraica",
+      "china": "China",
+      "mexico": "Mexico",
+      "germany": "Germany"
+    },
+    "accept_service": "Accept terms of service",
+    "account": "Your Account",
+    "login": "Login",
+    "register": "Register",
+    "enter": {
+      "email": "Enter Email",
+      "password": "Enter Password",
+      "name": "Enter Name",
+      "age": "Enter Age",
+      "confirm_password": "Enter Confirm Password"
+    },
+    "alert": {
+      "register_wait": "Please wait! Your account is being created.",
+      "register_error": "An unexpected error occured. Please try again later.",
+      "register_success": "Success! Your account has been created.",
+      "login_wait": "Please wait! We are logging you in.",
+      "login_error": "Invalid login details.",
+      "login_success": "Success! You are logged in"
+    }
+  },
+  "comments": {
+    "submit": "Submit",
+    "select_by_posted_time": {
+      "latest": "Latest",
+      "oldest": "Oldest"
+    },
+    "enter": "Enter your comment here..."
+  }
+}

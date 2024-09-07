@@ -26,41 +26,41 @@
       </div>
       <vee-form :validation-schema="schema" :initial-values="song" @submit="edit">
         <div class="mb-3">
-          <label class="inline-block mb-2">Song Title</label>
+          <label class="inline-block mb-2">{{ $t('manage.song_title') }}</label>
           <vee-field
             name="modified_name"
             type="text"
             class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
-            placeholder="Enter Song Title"
+            :placeholder="$t('manage.enter.song_title')"
             @input="updateUnsaveFlag(true)"
           />
           <ErrorMessage class="text-red-600" name="modified_name" />
         </div>
         <div class="mb-3">
-          <label class="inline-block mb-2">Genre</label>
+          <label class="inline-block mb-2">{{ $t('manage.genre') }}</label>
           <vee-field
             name="genre"
             type="text"
             class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
-            placeholder="Enter Genre"
+            :placeholder="$t('manage.enter.genre')"
             @input="updateUnsaveFlag(true)"
           />
           <ErrorMessage class="text-red-600" name="genre" />
         </div>
         <button
           type="submit"
-          class="py-1.5 px-3 rounded text-white bg-green-600"
+          class="py-1.5 px-3 rounded text-white bg-green-600 mr-2"
           :disabled="in_submission"
         >
-          Submit
+          {{ $t('manage.submit') }}
         </button>
         <button
           type="button"
-          class="py-1.5 px-3 rounded text-white bg-gray-600"
+          class="py-1.5 px-3 rounded text-gray-500 bg-white border border-soild border-gray-300"
           @click.prevent="showForm = false"
           :disabled="in_submission"
         >
-          Go Back
+          {{ $t('manage.go_back') }}
         </button>
       </vee-form>
     </div>
@@ -103,7 +103,7 @@ export default {
       in_submission: false,
       show_alert: false,
       alert_vatiant: 'bg-blue-500',
-      alert_message: 'Please wait! Updating song info.'
+      alert_message: this.$t('manage.alert.update_wait')
     }
   },
   methods: {
@@ -111,7 +111,7 @@ export default {
       this.in_submission = true
       this.show_alert = true
       this.alert_vatiant = 'bg-blue-500'
-      this.alert_message = 'Please wait! Updating song info.'
+      this.alert_message = this.$t('manage.alert.update_wait')
 
       // https://firebase.google.com/docs/firestore/manage-data/add-data?authuser=0#update-data
       try {
@@ -119,7 +119,7 @@ export default {
       } catch (error) {
         this.in_submission = false
         this.alert_vatiant = 'bg-red-500'
-        this.alert_message = 'Something went wrong! Try again later'
+        this.alert_message = this.$t('manage.alert.update_error')
         return
       }
 
@@ -128,7 +128,7 @@ export default {
 
       this.in_submission = false
       this.alert_vatiant = 'bg-green-500'
-      this.alert_message = 'Success!'
+      this.alert_message = this.$t('manage.alert.update_success')
     },
     async deleteSong() {
       const songRef = ref(storage, `songs/${this.song.original_name}`)

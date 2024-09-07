@@ -1,0 +1,26 @@
+{
+  "names": {
+    "modified_name": "song title",
+    "genre": "genre",
+    "email": "email",
+    "password": "password",
+    "name": "name",
+    "age": "age",
+    "confirm_password": "confirm password",
+    "country": "country",
+    "tos": "terms of service",
+    "comment": "comment"
+  },
+  "messages": {
+    "required": "The field {field} is required.",
+    "min": "The field {field} is too short",
+    "max": "The field {field} is too long",
+    "alpha_spaces": "The field {field} may only contain alphabetical characters and spaces",
+    "email": "The field {field} must be a valid email",
+    "min_value": "The field {field} is too low",
+    "max_value": "The field {field} is too high",
+    "excluded": "You are not allowed to use this value for the field {field}",
+    "password_mismatch": "The password do not match",
+    "tos": "You must accept the Terms of Service"
+  }
+}

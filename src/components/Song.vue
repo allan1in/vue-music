@@ -27,7 +27,10 @@
       <div class="bg-white rounded border border-gray-200 relative flex flex-col">
         <div class="px-6 pt-6 pb-5 font-bold border-b border-gray-200">
           <!-- Comment Count -->
-          <span class="card-title">Comments ({{ song.comment_count }})</span>
+          <!-- https://vue-i18n.intlify.dev/guide/essentials/pluralization.html#pluralization -->
+          <span class="card-title">{{
+            $tc('song.comment_count', song.comment_count, { count: song.comment_count })
+          }}</span>
           <i class="fa fa-comments float-right text-green-400 text-2xl"></i>
         </div>
         <div class="p-6">
@@ -43,7 +46,7 @@
               as="textarea"
               name="comment"
               class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
-              placeholder="Your comment here..."
+              :placeholder="$t('comments.enter')"
             ></vee-field>
             <ErrorMessage class="text-red-600" name="comment" />
             <button
@@ -51,7 +54,7 @@
               class="py-1.5 px-3 rounded text-white bg-green-600 block mt-4 mb-4"
               :disabled="comment_in_submission"
             >
-              Submit
+              {{ $t('comments.submit') }}
             </button>
           </vee-form>
           <!-- Sort Comments -->
@@ -59,8 +62,8 @@
             class="block py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
             v-model="sort"
           >
-            <option value="desc">Latest</option>
-            <option value="asc">Oldest</option>
+            <option value="desc">{{ $t('comments.select_by_posted_time.latest') }}</option>
+            <option value="asc">{{ $t('comments.select_by_posted_time.oldest') }}</option>
           </select>
         </div>
       </div>
@@ -167,6 +170,7 @@ export default {
       this.comment_alert_variant = 'bg-green-500'
       this.comment_alert_message = 'Comment added!'
 
+      // https://vee-validate.logaretm.com/v4/guide/components/handling-forms/#resetting-forms-after-submit
       resetForm()
     },
     async getComments() {

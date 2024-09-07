@@ -1,0 +1,78 @@
+{
+  "home": {
+    "title": "听好听的音乐！",
+    "desc": "在这里，你可以听你喜欢的音乐，或者上传音乐。",
+    "songs": "歌曲"
+  },
+  "song": {
+    "comment_count": "{count} 评论"
+  },
+  "header": {
+    "login_or_register": "登录/注册",
+    "manage": "管理",
+    "logout": "注销"
+  },
+  "player": {
+    "by": "来自"
+  },
+  "manage": {
+    "upload": "上传",
+    "my_songs": "我的歌曲",
+    "drop_msg": "将文件拖放到此处",
+    "song_title": "歌曲名",
+    "genre": "流派",
+    "submit": "提交",
+    "go_back": "返回",
+    "enter": {
+      "song_title": "输入歌曲名",
+      "genre": "输入流派"
+    },
+    "alert": {
+      "update_wait": "请稍等！正在更新歌曲信息。",
+      "update_error": "出现了一些问题！请稍后再尝试。",
+      "update_success": "成功！"
+    }
+  },
+  "auth": {
+    "email": "邮箱",
+    "password": "密码",
+    "submit": "提交",
+    "name": "姓名",
+    "age": "年龄",
+    "confirm_password": "确认密码",
+    "country": "国家",
+    "countries": {
+      "america": "美国",
+      "china": "中国",
+      "mexico": "墨西哥",
+      "germany": "德国"
+    },
+    "accept_service": "接受服务协议",
+    "account": "您的账户",
+    "login": "登录",
+    "register": "注册",
+    "enter": {
+      "email": "输入邮箱",
+      "password": "输入密码",
+      "name": "输入姓名",
+      "age": "输入年龄",
+      "confirm_password": "输入确认密码"
+    },
+    "alert": {
+      "register_wait": "请稍等！正在创建您的账户。",
+      "register_error": "出现未知错误，请稍后再尝试。",
+      "register_success": "成功！您的账户已经被创建。",
+      "login_wait": "请稍等，正在进行登录验证。",
+      "login_error": "登录信息错误。",
+      "login_success": "成功！您已成功登录。"
+    }
+  },
+  "comments": {
+    "submit": "提交",
+    "select_by_posted_time": {
+      "latest": "最近",
+      "oldest": "最早"
+    },
+    "enter": "在这里输入您的评论..."
+  }
+}

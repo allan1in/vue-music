@@ -20,7 +20,10 @@ const routes = [
   {
     name: 'manage',
     path: '/manage',
-    component: Manage
+    component: Manage,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     name: 'song',
@@ -41,7 +44,7 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
   // https://router.vuejs.org/zh/api/interfaces/RouterOptions.html#Properties-linkExactActiveClass
-  linkExactActiveClass: 'text-yellow-500'
+  linkExactActiveClass: 'text-orange-400'
 })
 
 router.beforeEach((to, from, next) => {

@@ -1,0 +1,26 @@
+{
+  "names": {
+    "modified_name": "歌曲名",
+    "genre": "流派",
+    "email": "邮箱",
+    "password": "密码",
+    "name": "姓名",
+    "age": "年龄",
+    "confirm_password": "确认密码",
+    "country": "国家",
+    "tos": "服务条款",
+    "comment": "评论"
+  },
+  "messages": {
+    "required": "{field}不能为空",
+    "min": "{field}长度不得小于0:{min}位",
+    "max": "{field}长度不得大于0:{max}位",
+    "alpha_spaces": "{field}只允许包括字母或空格",
+    "email": "{field}格式不正确",
+    "min_value": "{field}不能小于0:{min}",
+    "max_value": "{field}不能大于0:{max}",
+    "excluded": "你不能使用这个{field}",
+    "password_mismatch": "密码不一致",
+    "tos": "您必须接受服务条款"
+  }
+}

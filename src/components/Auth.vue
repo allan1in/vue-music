@@ -17,9 +17,9 @@
         <div class="py-4 text-left px-6">
           <!--Title-->
           <div class="flex justify-between items-center pb-4">
-            <p class="text-2xl font-bold">Your Account</p>
+            <p class="text-2xl font-bold">{{ $t('auth.account') }}</p>
             <!-- Modal Close Button -->
-            <div class="modal-close cursor-pointer z-50" @click.prevent="modalVisibility = false">
+            <div class="modal-close cursor-pointer z-50" @click.prevent="toggleForm">
               <i class="fas fa-times"></i>
             </div>
           </div>
@@ -35,7 +35,7 @@
                   'hover:text-white text-white bg-blue-600': tab === 'login',
                   'hover:text-blue-600': tab === 'register'
                 }"
-                >Login</a
+                >{{ $t('auth.login') }}</a
               >
             </li>
             <li class="flex-auto text-center">
@@ -47,7 +47,7 @@
                   'hover:text-white text-white bg-blue-600': tab === 'register',
                   'hover:text-blue-600': tab === 'login'
                 }"
-                >Register</a
+                >{{ $t('auth.register') }}</a
               >
             </li>
           </ul>
@@ -61,16 +61,13 @@
 </template>
 <script>
 import useModalStore from '@/stores/modal'
-import { mapState, mapWritableState } from 'pinia'
+import { mapActions, mapState, mapWritableState } from 'pinia'
 import LoginForm from './LoginForm.vue'
 import RegisterForm from './RegisterForm.vue'
 export default {
   name: 'Auth',
   computed: {
-    ...mapState(useModalStore, ['hiddenClass']),
-    ...mapWritableState(useModalStore, {
-      modalVisibility: 'isOpen'
-    })
+    ...mapState(useModalStore, ['hiddenClass'])
   },
   components: {
     LoginForm,
@@ -80,6 +77,9 @@ export default {
     return {
       tab: 'login'
     }
+  },
+  methods: {
+    ...mapActions(useModalStore, ['toggleForm'])
   }
 }
 </script>

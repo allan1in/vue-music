@@ -9,6 +9,8 @@ import router from './router'
 import VeeValidatePlugin from '@/includes/validation'
 import { auth } from '@/includes/firebase'
 import { onAuthStateChanged } from 'firebase/auth'
+import Icon from '@/directives/icon'
+import i18n from './includes/i18n'
 
 let app
 // check if the user is authenticated when application starts
@@ -19,7 +21,9 @@ onAuthStateChanged(auth, () => {
 
     app.use(router)
     app.use(VeeValidatePlugin)
+    app.use(i18n)
     app.use(createPinia())
+    app.directive('icon', Icon)
 
     app.mount('#app')
   }

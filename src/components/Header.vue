@@ -15,47 +15,65 @@
         <!-- Primary Navigation -->
         <ul class="flex flex-row mt-1">
           <!-- Navigation Links -->
-          <li>
+          <!-- <li>
             <router-link class="px-2 text-white" :to="{ name: 'about' }">About</router-link>
-          </li>
+          </li> -->
           <li v-if="!userStore.userLoggedIn">
-            <a class="px-2 text-white" href="#" @click.prevent="toggleAuthModal"
-              >Login / Register</a
-            >
+            <a class="px-2 text-white" href="#" @click.prevent="toggleForm">{{
+              $t('header.login_or_register')
+            }}</a>
           </li>
           <template v-else>
             <li>
-              <router-link class="px-2 text-white" :to="{ name: 'manage' }">Manage</router-link>
+              <router-link class="px-2 text-white" :to="{ name: 'manage' }">{{
+                $t('header.manage')
+              }}</router-link>
             </li>
             <li>
-              <a class="px-2 text-white" href="#" @click.prevent="signOut">Logout</a>
+              <a class="px-2 text-white" href="#" @click.prevent="signOut">{{
+                $t('header.logout')
+              }}</a>
             </li>
           </template>
+        </ul>
+        <ul class="ml-auto">
+          <li>
+            <a class="px-2 text-white" href="#" @click.prevent="changeLocale">{{
+              currentLocale
+            }}</a>
+          </li>
         </ul>
       </div>
     </nav>
   </header>
 </template>
 <script>
-import { mapStores } from 'pinia'
-import userModalStore from '@/stores/modal'
+import { mapStores, mapActions } from 'pinia'
+import useModalStore from '@/stores/modal'
 import useUserStore from '@/stores/user'
+import { setLocale } from '@vee-validate/i18n'
 
 export default {
   name: 'Header',
   computed: {
-    ...mapStores(userModalStore, useUserStore)
+    ...mapStores(useUserStore),
+    currentLocale() {
+      return this.$i18n.locale === 'zh' ? 'English' : '中文'
+    }
   },
   methods: {
-    toggleAuthModal() {
-      this.modalStore.isOpen = !this.modalStore.isOpen
-    },
+    ...mapActions(useModalStore, ['toggleForm']),
     signOut() {
       this.userStore.signOut()
       // leave from manage page
       if (this.$route.meta.requiresAuth) {
         this.$router.push({ name: 'home' })
       }
+    },
+    changeLocale() {
+      // https://vue-i18n.intlify.dev/guide/essentials/scope.html#locale-changing
+      this.$i18n.locale = this.$i18n.locale === 'zh' ? 'en' : 'zh'
+      setLocale(this.$i18n.locale)
     }
   }
 }

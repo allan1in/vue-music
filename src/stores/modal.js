@@ -8,5 +8,14 @@ export default defineStore('modal', {
     hiddenClass(state) {
       return !state.isOpen ? 'hidden' : ''
     }
+  },
+  actions: {
+    toggleForm() {
+      if (this.isOpen) {
+        this.isOpen = false
+      } else {
+        this.isOpen = true
+      }
+    }
   }
 })
